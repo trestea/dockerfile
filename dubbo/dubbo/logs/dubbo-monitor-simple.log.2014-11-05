@@ -1,0 +1,1 @@
+2014-11-05 16:47:25,872 [New I/O server worker #1-1] WARN  com.alibaba.dubbo.remoting.transport.AbstractServer (AbstractServer.java:197) -  [DUBBO] All clients has discontected from /192.168.171.238:7070. You can graceful shutdown now., dubbo version: 2.5.4, current host: 192.168.171.238

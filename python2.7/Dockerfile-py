@@ -1,0 +1,7 @@
+FROM centos:6.7
+ENV PATH /usr/local/bin:$PATH
+RUN yum -y install wget tar zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel gcc gcc-c++ && wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo && wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && yum clean all
+RUN wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz && tar -xvf Python-2.7.11.tgz && cd Python-2.7.11 && ./configure --prefix=/usr/local && make && make install && rm -rf Python-2.7.11.tgz Python-2.7.11
+RUN wget https://pypi.python.org/packages/ff/d4/209f4939c49e31f5524fa0027bf1c8ec3107abaf7c61fdaad704a648c281/setuptools-21.0.0.tar.gz#md5=81964fdb89534118707742e6d1a1ddb4 && tar xvf setuptools-21.0.0.tar.gz && cd setuptools-21.0.0 && python setup.py install && rm -rf setuptools-21.0.0 setuptools-21.0.0.tar.gz
+RUN wget https://pypi.python.org/packages/41/27/9a8d24e1b55bd8c85e4d022da2922cb206f183e2d18fee4e320c9547e751/pip-8.1.1.tar.gz#md5=6b86f11841e89c8241d689956ba99ed7 && tar vxf pip-8.1.1.tar.gz && cd pip-8.1.1 && python setup.py install && rm -rf pip-8.1.1.tar.gz pip-8.1.1 && pip install --upgrade pip && pip install ipython virtualenv virtualenvwrapper
+CMD ["python2"]

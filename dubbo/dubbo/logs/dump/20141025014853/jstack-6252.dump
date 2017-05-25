@@ -1,0 +1,190 @@
+2014-10-25 01:48:53
+Full thread dump OpenJDK 64-Bit Server VM (23.2-b09 mixed mode):
+
+"Attach Listener" daemon prio=10 tid=0x00007f854c001000 nid=0x19f6 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"1697968603@qtp-2087029116-1 - Acceptor0 SelectChannelConnector@0.0.0.0:8080" prio=10 tid=0x00007f8578807800 nid=0x1898 runnable [0x00007f856dde6000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:228)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:81)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x000000077c65a6c0> (a sun.nio.ch.Util$2)
+	- locked <0x000000077c65a6b0> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x000000077c65a490> (a sun.nio.ch.EPollSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at org.mortbay.io.nio.SelectorManager$SelectSet.doSelect(SelectorManager.java:498)
+	at org.mortbay.io.nio.SelectorManager.doSelect(SelectorManager.java:192)
+	at org.mortbay.jetty.nio.SelectChannelConnector.accept(SelectChannelConnector.java:124)
+	at org.mortbay.jetty.AbstractConnector$Acceptor.run(AbstractConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+
+"1138341688@qtp-2087029116-0" prio=10 tid=0x00007f8578828800 nid=0x1897 in Object.wait() [0x00007f856de27000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000077c4ae1d8> (a org.mortbay.thread.QueuedThreadPool$PoolThread)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:626)
+	- locked <0x000000077c4ae1d8> (a org.mortbay.thread.QueuedThreadPool$PoolThread)
+
+"DubboSaveRegistryCache-thread-1" daemon prio=10 tid=0x00007f85787c7800 nid=0x188d waiting on condition [0x00007f856de68000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077a4b7280> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1043)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1103)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+"main-EventThread" daemon prio=10 tid=0x00007f85787a2800 nid=0x188c waiting on condition [0x00007f856dea9000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077a6e1340> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:502)
+
+"main-SendThread(localhost:2181)" daemon prio=10 tid=0x00007f85787af800 nid=0x188b runnable [0x00007f856deea000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:228)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:81)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x000000077a66f670> (a sun.nio.ch.Util$2)
+	- locked <0x000000077a66f660> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x000000077a66f440> (a sun.nio.ch.EPollSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1107)
+
+"ZkClient-EventThread-15-127.0.0.1:2181" daemon prio=10 tid=0x00007f85787a2000 nid=0x188a waiting on condition [0x00007f856df2b000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077a5bfcc8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at org.I0Itec.zkclient.ZkEventThread.run(ZkEventThread.java:67)
+
+"DubboRegistryFailedRetryTimer-thread-1" daemon prio=10 tid=0x00007f8578787000 nid=0x1889 waiting on condition [0x00007f856df6c000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077a4b8460> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:807)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1043)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1103)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+"dubbo-remoting-server-heartbeat-thread-1" daemon prio=10 tid=0x00007f8578727800 nid=0x1888 waiting on condition [0x00007f856dfad000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x0000000779f00850> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:807)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1043)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1103)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+"New I/O server boss #1 ([id: 0x5b23d14c, /0.0.0.0:7070])" daemon prio=10 tid=0x00007f857872b000 nid=0x1887 runnable [0x00007f856dfee000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:228)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:81)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x0000000779eef628> (a sun.nio.ch.Util$2)
+	- locked <0x0000000779eef5a8> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x0000000779eef320> (a sun.nio.ch.EPollSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink$Boss.run(NioServerSocketPipelineSink.java:240)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+"DubboMonitorTimer-thread-1" daemon prio=10 tid=0x00007f857868c000 nid=0x1881 waiting on condition [0x00007f856e237000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077823c0c8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:807)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1043)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1103)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+"DubboMonitorAsyncWriteLogThread" daemon prio=10 tid=0x00007f857868a800 nid=0x1880 waiting on condition [0x00007f856e278000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077823c620> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at com.alibaba.dubbo.monitor.simple.SimpleMonitorService.write(SimpleMonitorService.java:161)
+	at com.alibaba.dubbo.monitor.simple.SimpleMonitorService.access$100(SimpleMonitorService.java:64)
+	at com.alibaba.dubbo.monitor.simple.SimpleMonitorService$1.run(SimpleMonitorService.java:120)
+	at java.lang.Thread.run(Thread.java:722)
+
+"Service Thread" daemon prio=10 tid=0x00007f85781b7000 nid=0x1879 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" daemon prio=10 tid=0x00007f85781b4000 nid=0x1878 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" daemon prio=10 tid=0x00007f85781b2000 nid=0x1877 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" daemon prio=10 tid=0x00007f85781af800 nid=0x1876 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Surrogate Locker Thread (Concurrent GC)" daemon prio=10 tid=0x00007f85781ad800 nid=0x1875 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" daemon prio=10 tid=0x00007f8578158000 nid=0x1874 in Object.wait() [0x00007f856f579000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000775a05728> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <0x0000000775a05728> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:177)
+
+"Reference Handler" daemon prio=10 tid=0x00007f8578156000 nid=0x1873 in Object.wait() [0x00007f857c07d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000775a052b0> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <0x0000000775a052b0> (a java.lang.ref.Reference$Lock)
+
+"main" prio=10 tid=0x00007f857800a000 nid=0x186e in Object.wait() [0x00007f857eb93000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000775b3f860> (a java.lang.Class for com.alibaba.dubbo.container.Main)
+	at java.lang.Object.wait(Object.java:503)
+	at com.alibaba.dubbo.container.Main.main(Main.java:92)
+	- locked <0x0000000775b3f860> (a java.lang.Class for com.alibaba.dubbo.container.Main)
+
+"VM Thread" prio=10 tid=0x00007f857814d800 nid=0x1872 runnable 
+
+"Gang worker#0 (Parallel GC Threads)" prio=10 tid=0x00007f8578013000 nid=0x186f runnable 
+
+"Gang worker#1 (Parallel GC Threads)" prio=10 tid=0x00007f8578015000 nid=0x1870 runnable 
+
+"Concurrent Mark-Sweep GC Thread" prio=10 tid=0x00007f8578073800 nid=0x1871 runnable 
+"VM Periodic Task Thread" prio=10 tid=0x00007f85781c2000 nid=0x187a waiting on condition 
+
+JNI global references: 264
+

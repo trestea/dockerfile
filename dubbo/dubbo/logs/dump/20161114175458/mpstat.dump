@@ -1,0 +1,4 @@
+Linux 3.10.0-327.el7.x86_64 (docker.wanttreasure.com) 	11/14/2016 	_x86_64_	(2 CPU)
+
+05:54:58 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+05:54:58 PM  all    2.22    0.00    1.39    6.69    0.00    0.05    0.00    0.00    0.00   89.65

@@ -1,0 +1,193 @@
+Preface
+
+This is the Changelog for Tomcat Native. This changelog does not contain all
+updates and fixes to the Tomcat Native (yet). It should contain fixes made only
+after December 19th 2007, when the new documentation project for Tomcat Native
+was started.
+
+Changes between 1.1.32 and 1.1.33
+
+  * Fix: Fix compilation failures with master branch of OpenSSL. Replace access
+    to OpenSSL internals by accessor functions. (rjung/kkolinko)
+  * Fix: Fix a zero-boundary-check compiler warning and simplify code in the
+    process. (rjung)
+  * Fix: Remove superfluous semicolons after close-braces to eliminate compiler
+    warnings. (schultz)
+  * Fix: 57653: Fix crash when multiple events for same socket are returned via
+    separate apr_pollfd_t structures. (markt)
+  * Fix: Enable building with OpenSSL 1.0.2 onwards. (billbarker)
+  * Update: Use OpenSSL 1.0.1m with Windows binaries. (markt)
+
+Changes between 1.1.31 and 1.1.32
+
+  * Fix: 53952: Add support for TLSv1.2 and TLSv1.1. Patch provided by Marcel
+    ?ebek. (schultz)
+  * Fix: 56844: Use OpenSSL 1.0.1j with Windows binaries. (markt)
+  * Update: Use APR 1.5.1 with Windows binaries (markt)
+
+Changes between 1.1.30 and 1.1.31
+
+  * Fix: 55938: Fix "Dereference of null pointer" issues in rarely used methods
+    in ssl.c. Fix possible memory leak in Socket.sendto(). The issues were
+    identified with clang-analyzer. (kkolinko)
+  * Fix: 56396: Do not create RSA keys shorter the 1024 bits if inside FIPS
+    mode. (mturk)
+  * Fix: 56423: Implement stubs for methods fipsModeGet, fipsModeSet when
+    library is compiled without OpenSSL. (kkolinko)
+  * Fix: 56596: Use OpenSSL 1.0.1h with Windows binaries. (markt)
+
+Changes between 1.1.29 and 1.1.30
+
+  * Fix: 56363: Use OpenSSL 1.0.1g with Windows binaries. (mturk)
+  * Fix: 55915: Apply Mike Noordermeer's patch for ECDHE support. (mturk)
+  * Fix: 55663: Minor correction to the wording of the NOTICE file to align it
+    with the requirements for NOTICE files. (kkolinko)
+  * Fix: 56027: Partial fix includes new fipsModeGet function to get the
+    current state of OpenSSL FIPS mode.
+
+Changes between 1.1.28 and 1.1.29
+
+  * Fix: Change return code when removing a socket from a poller, that was
+    actually not in the poller from APR_SUCCESS to APR_NOTFOUND. (rjung)
+
+Changes between 1.1.27 and 1.1.28
+
+  * Update: Java classes in package org.apache.tomcat.jni are now taken from
+    Tomcat trunk using svn:externals. (rjung)
+  * Update: Minimum supported APR version is now again 1.2.1. Version 1.3.0 of
+    APR improves performance. (rjung)
+  * Fix: 29422: Fixed double-free in ssl_ocsp_request. Patch provided by
+    Aristotelis. (schultz)
+  * Fix: 51655: Added a decent description of what tcnative actually is.
+    (schultz)
+  * Fix: 51813: Add NULL-checking for s->net to avoid SIGSEGV in situations
+    where it appears a socket has been recycled. (schultz)
+
+Changes between 1.1.26 and 1.1.27
+
+  * Fix: 54513: Fix regression in pollset return value. (mturk)
+  * Fix: Switch CPU information on Solaris from milliseconds to microseconds.
+    Make consistent with OS.java and Linux impl. (rjung)
+
+Changes between 1.1.25 and 1.1.26 (not released)
+
+  * Fix: 54468: Fix FIPS mode for listeners when using OpenSSL 1.0.1c and
+    later; resolves 'Low level API call to digest MD5 forbidden in FIPS mode!'
+    errors. (wrowe)
+  * Update: Add clearOptions function to allow access to OpenSSL's
+    SSL_CTX_clear_options function. (schultz)
+
+Changes between 1.1.24 and 1.1.25 (not released)
+
+  * Update: Minimum supported APR version is now 1.3.0. (mturk)
+  * Fix: 52856: Fix high CPU usage when client changes IP address or has high
+    latency. (mturk)
+  * Update: Add CPU information to OS info for Linux. This was already
+    available under Windows and Solaris. (rjung)
+  * Fix: 53969: ssl.c::hasOp could only check for
+    SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION. Now it can check for any SSL_OP_*
+    available at compile-time. (schultz)
+
+Changes between 1.1.23 and 1.1.24
+
+  * Update: Add support for per-socket timeouts inside poller. (markt, mturk)
+
+Changes between 1.1.22 and 1.1.23
+
+  * Update: 45392: Add support for OCSP verification. Based upon a patch from
+    Aristotelis. (mturk)
+  * Fix: 52119: Autodetect Diablo JDK on FreeBSD and Java7+. Based upon a patch
+    from Michael Osipov. (mturk)
+  * Fix: 52717: Set scope_id for IPv6 addresses if provided. (mturk)
+  * Update: 50570: Allow explicit use of FIPS mode in APR lifecycle listener
+    (native support only in this update; Java support to follow). Based upon a
+    patch from Chris Beckey. (schultz)
+
+Changes between 1.1.21 and 1.1.22
+
+  * Fix: Arrange release packaging script. (jfclere).
+  * Fix: Fix typos in the changelog. (markt).
+
+Changes between 1.1.20 and 1.1.21 (not released)
+
+  * Fix: 50394: InternalAprInputBuffer.fill() doesn't deal correctly with EOF.
+    (jfclere)
+  * Fix: Support arbitrary protocol combinations of SSLv2, SSLv3 and TLSv1.
+    (rjung)
+  * Fix: 51437: Try loading certificate in DER format if PEM was invalid.
+    (mturk)
+  * Fix: 49557: index error in the loop to get the env info in the proc.create
+    function. (kkolinko, jfclere)
+  * Fix: 49851: JNI Registry.deleteKey and Registry.deleteValue corrupt Windows
+    registry. (jfclere)
+  * Fix: 48253: adding dynamic locking callbacks for openssl engines. (jfclere)
+  * Update: Make the non blocking write really no blocking. (jfclere)
+  * Update: Add support for unsafe legacy renegotiation. (mturk)
+
+Changes between 1.1.19 and 1.1.20
+
+  * Fix: 48584: Prevent crashing JVM on shutdown. (mturk)
+
+Changes between 1.1.18 and 1.1.19
+
+  * Fix: Update windows resource files to correct version. (mturk)
+  * Fix: 48129: Fix build with OpenSSL 1.0.0-beta3. Patch provided by Tomas
+    Mraz. (mturk, rjung)
+  * Update: Add detection of the Mac OS X JVM. (rjung)
+
+Changes between 1.1.17 and 1.1.18
+
+  * Fix: Fix CVE-2009-3555 SSL-Man-In-The-Middle attack. (mturk)
+
+Changes between 1.1.16 and 1.1.17
+
+  * Update: Arrange build after svn reorganisation (rjung)
+  * Fix: 47852: Fix some Javadoc errors. Patch provided by Sebb. (rjung)
+  * Fix: 46950: Fix SSL renegotiation in combination with client certificates.
+    The complete solution also needs a fix in Tomcat's Java code. (markt)
+  * Fix: Align method names and signatures of native C code and java code.
+    (markt, rjung)
+  * Fix: 42728: Remove memory leak. (markt)
+  * Fix: 46457: Fix use of multicast. (markt)
+  * Fix: Fix API name for recvfrom (mturk)
+  * Fix: Allow building against APR 1.3 (mturk)
+  * Fix: Improve fix for 43327 with better handling for IPv6 addresses (markt)
+
+Changes between 1.1.15 and 1.1.16
+
+  * Fix: Fix API name for recvfrom (mturk)
+  * Fix: Allow building against APR 1.3 (mturk)
+  * Fix: Improve fix for 43327 with better handling for IPv6 addresses (markt)
+
+Changes between 1.1.14 and 1.1.15
+
+  * Fix: 43327: Socket bind fail because mixing IPv4/IPv6 (markt, jfclere)
+  * Fix: 44864: Use additional check for SSL verify like with mod_ssl for
+    SSLVerifyClient=optionalNoCA. (mturk)
+
+Changes between 1.1.13 and 1.1.14
+
+  * Fix: 45071: Reset ttl when Poll.pool remove is false. Additional patch was
+    provided by Alex Barclay. (mturk)
+  * Fix: Fix optGet that was always throwing exceptions. (jfclere)
+  * Fix: Fix optSet don't throw exception as JAVA prototype doesn't. (jfclere)
+
+Changes between 1.1.12 and 1.1.13
+
+  * Fix: IFS problem in native/build/tcnative.m4 (rjung)
+  * Fix: Wrong gcc link flag in native/build/tcnative.m4 (rjung)
+
+Changes between 1.1.11 and 1.1.12
+
+  * Update: Add support of J9VM based JVM. (jfclere)
+  * Update: Arrange licence in source files. (markt)
+  * Update: Add two new 'immediate' methods for sending the data. It is the
+    responsibility of the Java callee to deal with the returned values and
+    retry if the error was non-fatal. (mturk)
+  * Fix: Arrange the check of openssl version. It was failing on Linux.
+    (jfclere)
+  * Fix: Prevent returning APR_SUCCESS when there is something wrong in ssl
+    layer. (jfclere)
+  * Fix: 44087: Fix it. (jfclere)
+
+Copyright (C) 2008-2015, The Apache Software Foundation
